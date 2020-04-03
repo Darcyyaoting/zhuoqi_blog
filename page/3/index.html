@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>卓奇的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="卓奇的博客">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="卓奇的博客">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="卓奇的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="卓奇的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">卓奇的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">--记录知识</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="posts-hive/删去某个条件的行" class="article article-type-posts" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/22/hive/删去某个条件的行/" class="article-date">
+  <time datetime="2018-11-22T09:21:55.000Z" itemprop="datePublished">2018-11-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/hive/删去某个条件的行/">删去某个条件的行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>hive里删去满足某个条件的行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT OVERWRITE TABLE mytable</span><br><span class="line">SELECT * FROM mytable</span><br><span class="line">WHERE  app_key != $&#123;hiveconf:value&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>坑爹啊</p>
+<p>INSERT OVERWRITE TABLE tmp.data_security_lab_shadow_tmp<br>select * from tmp.data_security_lab_shadow_tmp as a where d2[8] != ‘bb3c119763c973bc812d2ded5jjjjjjj01010’;</p>
+<p>INSERT OVERWRITE TABLE tmp.data_security_lab_shadow_tmp<br>select * from tmp.data_security_lab_shadow_tmp as a where 1=0;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/22/hive/删去某个条件的行/" data-id="ck8k9er9n000pb4lwktm5laz3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="posts-pandas/read-csv中文编码" class="article article-type-posts" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/22/pandas/read-csv中文编码/" class="article-date">
+  <time datetime="2018-11-22T08:35:03.000Z" itemprop="datePublished">2018-11-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/pandas/read-csv中文编码/">Read_csv中文编码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文件里有中文<code>pd.read_csv</code> 时提示 <code>UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte</code><br>需要加上<code>encoding = &quot;ISO-8859-1&quot;</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/22/pandas/read-csv中文编码/" data-id="ck8k9erav002hb4lwposo89mw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hive/count(distinct)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/19/hive/count(distinct)/" class="article-date">
+  <time datetime="2018-09-19T06:22:14.000Z" itemprop="datePublished">2018-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/19/hive/count(distinct)/">Count(distinct)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count(distinct if(condition,result1,&apos;&apos;))</span><br></pre></td></tr></table></figure>
+<p>hive当中用count(distinct)时如果if里不满足条件设成’’，那么最终结果会多1，所以需要改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count(distinct if(condition,result1,null))</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/19/hive/count(distinct)/" data-id="ck8k9er9b0009b4lwq3mae2gm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hive/hive处理脏数据" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/hive/hive处理脏数据/" class="article-date">
+  <time datetime="2018-09-05T02:45:49.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/hive/hive处理脏数据/">hive处理IOT脏数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这两天需要处理IOT扫描的上报数据，因为上报的都是未经处理的脏数据，比如unicode编码、不是json能够识别的单引号。<br>不仅如此，json里面还有数组，用之前str_to_map或者直接取key的方法只能取最后一个value。<br>经过搜索，最终解决了问题：</p>
+<ol>
+<li>首先整个数据是一个大json，但只有最外层可以被识别成json，里面每层都被识别成字符串，所以先去掉第一层，即直接取key：d2[‘703’]</li>
+<li>d2[‘703’]里面是unicode编码，所以首先<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regexp_replace(regexp_replace(d2[&apos;703&apos;],&apos;u\&apos;&apos;,&apos;\&apos;&apos;),&apos;\&apos;&apos;,&apos;\&quot;&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样基本将单引号处理成双引号，将u去掉</p>
+<ol start="3">
+<li>因为每一行可能有好几个设备和好几个协议，所以需要拆开，并且将行转列，才能达到原先的每行数据去重。<br>举个栗子：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select index_value</span><br><span class="line">from table</span><br><span class="line">lateral view explode([a,b,c]) mid_list_tab as index_value;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>本来[a,b,c]是一行数据，处理后变成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br></pre></td></tr></table></figure></p>
+<p>如果是map的话<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select index_key,index_value</span><br><span class="line">from report.data_security_lab_shadow</span><br><span class="line">lateral view explode(str_to_map(&apos;device_ds:2&amp;uid_cnt:1&apos;,&apos;&amp;&apos;,&apos;:&apos;)) a as index_key,index_value</span><br></pre></td></tr></table></figure></p>
+<p>就变成以下两列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">index_key  index_value</span><br><span class="line">device_ds  2</span><br><span class="line">uid_cnt    1</span><br></pre></td></tr></table></figure></p>
+<p>我们用到了split(str,’\}\, \{‘)来分离不同设备不同协议，用lateral view explode 数组中每一项转为列，这样每一行都只有一个设备一个协议<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lateral view explode( split(regexp_replace(regexp_replace(d2[&apos;703&apos;],&apos;u\&apos;&apos;,&apos;\&apos;&apos;),&apos;\&apos;&apos;,&apos;\&quot;&apos;)  ,&apos;\\&#125;\\, \\&#123;&apos;)) mid_list_tab as index_value</span><br></pre></td></tr></table></figure></p>
+<ol start="4">
+<li><p>使用str_to_map 将每行字符串变成map，然后按key寻找每个协议的mac地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coalesce(str_to_map(index_value,&apos;,&apos;,&apos;:&apos;)[&quot; \&quot;122\&quot;&quot;],str_to_map(index_value,&apos;,&apos;,&apos;:&apos;)[&quot; \&quot;203\&quot;&quot;],str_to_map(index_value,&apos;,&apos;,&apos;:&apos;)[&quot; \&quot;401\&quot;&quot;],str_to_map(index_value,&apos;,&apos;,&apos;:&apos;)[&quot; \&quot;500\&quot;&quot;],str_to_map(index_value,&apos;,&apos;,&apos;:&apos;)[&quot; \&quot;600\&quot;&quot;]) as mac</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按时间、地区、原始数据去重，得到原先每一行的mac地址去重</p>
+</li>
+</ol>
+<h3>done!</h3>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/05/hive/hive处理脏数据/" data-id="ck8k9er9g000gb4lwz55zoptc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-http/图解http7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/26/http/图解http7/" class="article-date">
+  <time datetime="2018-08-26T03:41:28.000Z" itemprop="datePublished">2018-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/26/http/图解http7/">图解Http7</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第七章-确保web安全的https"><a href="#第七章-确保web安全的https" class="headerlink" title="第七章 确保web安全的https"></a>第七章 确保web安全的https</h2><ol>
+<li><p><font color="red"><b>http的缺点</b></font><br><br> 1.1 通信使用明文（不加密），内容可能被窃听；<br> 抓包工具：wireshark等<br> 应对措施：加密处理<br> 第一种是通信加密：http中没有加密机制，但可以和ssl（secure socket layer）或者tls（transport layer security）的组合使用，加密http的通内容<br> 第二种是内容加密<br> 1.2 不验证通信方的内容，有可能遭遇伪装<br> 应对措施：证书<br> 证书由值得信赖的第三方机构颁发，客户端发送请求之前先向第三方机构确认服务端证书<br> 1.3 无法证明报文的完整性，有可能被篡改<br> 请求或响应在传输途中被篡改的攻击叫中间人攻击（man-in-the-middle attack,MITM）</p>
+</li>
+<li><p><font color="red"><b>http+加密+证书+完整性保护 = https</b></font><br><br> https是通信接口部分用ssl和tls代替的http。通常http和tcp直接通信，使用ssl时，变成http首先和ssl通信，然后ssl和tcp通信<br> </p><p><img src="/img/http7.png" width="500px"></p><br> ssl 是独立于http的协议，其他运行在应用层的协议如：SMTP、Telnet等都可以配合ssl使用。ssl是目前应用最为广泛的网络安全技术。<br> 2.1 加密技术<br> 加密方法中加密算法都是公开的，密钥是私有的，加密和解密都要用到密钥。加密和解密使用同一份密钥叫做共享密钥加密，也被叫做对称密钥加密。但是在传输密钥时如果被窃听，则失去了密钥的意义。<br> 公开密钥加密：使用公开密钥和私有密钥，所以是非对称密钥加密。使用公开密钥加密，使用私有密钥解密通信。<br> https使用公开密钥和共享密钥混合的加密方式。使用公开密钥加密传输密钥，然后使用共享密钥加密传输报文。因为公开密钥加密比共享密钥加密要复杂的多，也消耗更多的时间。<br> 2.2 证书<br> 公开密钥如果被篡改，不是原先服务器的公开密钥，那么会有危险。需要使用由数字证书认证机构颁发的公开密钥证书。<p></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/26/http/图解http7/" data-id="ck8k9er9u000zb4lwkjl1mgg8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-http/图解http4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/23/http/图解http4/" class="article-date">
+  <time datetime="2018-08-23T06:57:41.000Z" itemprop="datePublished">2018-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/23/http/图解http4/">图解Http4</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第四章-返回结果的HTTP状态码"><a href="#第四章-返回结果的HTTP状态码" class="headerlink" title="第四章 返回结果的HTTP状态码"></a>第四章 返回结果的HTTP状态码</h2><ol>
+<li><font color="red"><b>状态码告知从服务器端返回的请求结果</b></font><br><br> 状态码由3位数字和原因短语组成<br><p><img src="/img/http6.png" width="500px"></p><br><br></li>
+<li><font color="red"><b>2xx成功</b></font><br><br> 2xx的响应结果表明请求被正常处理了<br> 2.1 200 ok<br> 表示从客户端发来的请求在服务端被正常处理了<br> 2.2 204 no content<br> 表示请求已成功处理，但在返回的响应报文中不含实体的主体部分，也不允许返回任何实体的主体。<br> 2.3 206 partial content<br> 表示客户端进行了范围请求，响应报文中包含由content-range指定范围的实体内容</li>
+<li><font color="red"><b>3xx重定向</b></font><br></li>
+<li><font color="red"><b>4xx客户端错误</b></font><br><br> 表明客户端是发生错误的原因所在<br> 4.1 400 bad request<br> 表示请求报文中存在语法错误<br> 4.2 401 unauthorized<br> 表示发送的请求需要有通过HTTP认证（BASIC 认证、DIGEST认证）的认证信息。若之前进行过1次请求，则表示用户认证失败。<br> 4.3 403 forbidden<br> 表明请求资源的访问被服务器拒绝了。<br> 4.4 404 not found<br> 表明服务器上无法找到请求的资源。</li>
+<li><font color="red"><b>5xx服务器错误</b></font><br><br> 表明服务器端本身发生错误<br> 5.1 500 internal server error<br> 表明服务器端在执行请求时发生错误<br> 5.2 503 service unavailable<br> 表明服务器暂时处于超负载或正在进行停机维护</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/23/http/图解http4/" data-id="ck8k9er9t000xb4lw6yowu2au" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-http/图解http3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/23/http/图解http3/" class="article-date">
+  <time datetime="2018-08-23T03:29:10.000Z" itemprop="datePublished">2018-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/23/http/图解http3/">图解Http3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第三章-HTTP报文内的HTTP信息"><a href="#第三章-HTTP报文内的HTTP信息" class="headerlink" title="第三章 HTTP报文内的HTTP信息"></a>第三章 HTTP报文内的HTTP信息</h2><ol>
+<li><font color="red"><b>HTTP报文</b></font><br><br> HTTP报文由报文首部和报文主体构成，通常并不一定有报文主体。请求端（客户端）发送的http报文叫做请求报文，响应端（服务器端）发送的http报文叫做响应报文。<br></li>
+<li><font color="red"><b>请求报文及响应报文的结构</b></font><br><br> 报文首部：请求行/状态行、首部字段（请求首部字段/响应首部字段、通用首部字段和实体首部字段）、其他（例如：cookie）。<br></li>
+<li><font color="red"><b>编码提升传输速率</b></font><br><br> 3.1 报文（message）：http通信的基本单位，由8位组字节流组成，通过http通信传输；实体（entity）：作为请求或响应的有效载荷数据被传输，其内容由实体首部和实体主体组成。<br> http报文的主体用来传输实体主体，通常报文主体等于实体主体，只有当传输中进行编码操作时，实体主体内容发生变化，才导致和报文主体产生差异。<br> 3.2 http内容编码：指明应用在实体内容上的编码格式，并保持试题信息原样压缩。内容编码后的实体由客户端接收并负责解码。<br> 常用内容编码：gzip（GNU zip）、compress（unix系统的标准压缩）、deflate（zlib）、identity（不进行编码）<br> 3.3 分割发送的分块传输编码<br> 在传输大容量数据时，通过把数据分割成多块，能够让浏览器逐步显示页面，这种把实体主体分块的功能叫分块传输编码。</li>
+<li><font color="red"><b>发送多种数据的多部分对象集合</b></font><br><br> MIME（multipurpose internet mail extensions）允许邮件处理文本、图片、视频等多个不同类型的数据。在MIME扩展中会使用一种multipart的方法，来容纳多份不同类型的数据。<br> multipart/form-data 在web表单文件上传时使用；multipart/byteranges 状态码206响应报文包含了多个范围的内容时使用。</li>
+<li><font color="red"><b>内容协商</b></font><br><br> 当浏览器的默认语言为英文或中文时，访问相同的uri的web页面时，会显示对应的英文版或中文版的web页面，这样的机制成为内容协商。<br> 分类：服务器驱动协商（参考请求的首部字段）、客户端驱动协商（用户手动选择）、透明协商（服务器驱动和客户端驱动的结合体）</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/23/http/图解http3/" data-id="ck8k9er9s000vb4lwz2j9t8m2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-http/图解http2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/20/http/图解http2/" class="article-date">
+  <time datetime="2018-08-20T04:45:55.000Z" itemprop="datePublished">2018-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/20/http/图解http2/">图解Http2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第二章-简单的http协议"><a href="#第二章-简单的http协议" class="headerlink" title="第二章 简单的http协议"></a>第二章 简单的http协议</h2><p><font color="red"><b>http请求和响应</b></font><br></p>
+<ol>
+<li>请求报文由以下几部分构成：请求方法、请求URI、协议版本、可选的请求首部字段和内容实体<br><p><img src="/img/http4.png" width="500px"></p><br><br></li>
+<li>响应报文由以下几部分构成：协议版本、状态码（表示请求成功或失败的数字代码）、用以解释状态码的原因短语、<br>可选的响应首部字段以及实体主体<br><p><img src="/img/http5.png" width="500px"></p><br><br></li>
+<li>http是一种无状态协议，对请求和响应之间的通信状态不进行保存。所以引进了cookie技术。<br><br></li>
+<li>请求URI<br>GET <a href="http://hackr.jp/index.htm" target="_blank" rel="noopener">http://hackr.jp/index.htm</a> HTTP/1.1 或者<br>GET /index.htm HTTP/1.1<br>Host: hackr.jp<br>如果不是访问特定资源而是对服务器本身发起请求，可以用<code>*</code>代替请求URI，比如：<br>OPTIONS * HTTP/1.1<br><br></li>
+<li>HTTP方法<br>GET：用来请求访问已被URI识别的资源。<br>请求：GET /index.html HTTP/1.1<br> Host: <a href="http://www.hackr.jp" target="_blank" rel="noopener">www.hackr.jp</a><br>响应：返回 index.html 的页面资源<br>POST：传输实体主体<br>请求：POST /submit.cgi HTTP/1.1<br>  Host: <a href="http://www.hackr.jp" target="_blank" rel="noopener">www.hackr.jp</a><br>  Content-Length: 1560（1560字节的数据）<br>响应： 返回submit.cgi接收数据的处理结果<br>PUT：传输文件<br>像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置。但是因为不带验证机制，一般的web网站不使用此方法（rest标准的web网站可能开放）<br>DELETE：删除文件<br><br></li>
+<li>持久连接<br>http早期采用每完成一次请求之后，就断开tcp一次，即<b>tcp三次握手四次挥手</b>，这样会浪费很多tcp连接时间。后来http1.1改为持久连接，即如果一方不声明断开连接，则保持tcp连接状态<br><br></li>
+<li>管线化<br>一次http请求发送后不用等待回应可以发送下一次请求，即同时并行发送多个请求。<br><br></li>
+<li>cookie<br>请求报文（没有cookie信息的状态）<br>GET /reader/ HTTP/1.1<br>Host: hackr.jp<br>*首部字段内没有cookie的相关信息<br><br>响应报文（服务器端生成cookie信息）<br>HTTP/1.1 200 OK<br>Date: Thu, 12 Jul 2012 07:12:20 GMT<br>Server: Apache<br>&lt;Set-Cookie: sid=1342077140226724; path=/; expires=Wed, 10-Oct-12 07:12:20 GMT&gt;<br>Content-Type: text/plain; charset=UTF-8<br><br>请求报文（自动发送保存着的cookie信息）<br>GET /image/ HTTP/1.1<br>Host: hackr.jp<br>Cookie: sid=1342077140226724</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/20/http/图解http2/" data-id="ck8k9er9q000tb4lwj3l2um2d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-http/图解http1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/19/http/图解http1/" class="article-date">
+  <time datetime="2018-08-19T07:09:42.000Z" itemprop="datePublished">2018-08-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/19/http/图解http1/">图解Http(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章-：了解web及网络基础"><a href="#第一章-：了解web及网络基础" class="headerlink" title="第一章 ：了解web及网络基础"></a>第一章 ：了解web及网络基础</h2><ul>
+<li>WWW 3项构建技术：HTML(hypertext markup language)、 HTTP(hypertext transfer protocol)、 URL(uniform resource locator);<br>WWW 也简称为Web</li>
+<li>不同的硬件、操作系统之间的通信需要统一成一种规则，叫做协议（protocol）</li>
+</ul>
+<h3 id="TCP-IP-协议族"><a href="#TCP-IP-协议族" class="headerlink" title="TCP/IP 协议族"></a>TCP/IP 协议族</h3><ol>
+<li><p><font color="red"><b>TCP/IP</b></font><br><br>分层：应用层、传输层、网络层、链路层；为什么需要分层：因为需要改变时不需要改变整个协议，而是改变某层协议就行了。<br>1.1 应用层<br>应用层决定了向用户提供应用服务时通信的活动，如：FTP（file transfer protocol）、DNS（domain name system）、HTTP（hypertext transfer protocol）<br>1.2 传输层<br>传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，如：TCP（transmission control protocol）、UDP（user data protocol）<br>1.3 网络层<br>网络层用来处理在网络上流动的数据包。数据包是网络传输的最小数据单位，网络层规定了通过怎样的路径到达对方计算机，并把包给对方<br>1.4 链路层<br>用来处理连接网络的硬件部分<br>1.5 TCP/IP 通信传输流</p>
+<p><img src="/img/http1.png" width="500">传输数据包</p><br><br><p><img src="/img/http2.png" width="500">封装数据包</p>
+</li>
+<li><p><font color="red"><b>与http关系密切的协议：IP/TCP/DNS</b></font><br><br>2.1 IP(internet protocol)<br>IP协议的作用是把数据包传输给对方，要保证确实传输到某个地方，则需要满足某些条件，其中最重要的是IP地址和mac地址（media access control address）。<br>IP地址指明了节点被分配的地址，mac地址指明了网卡所属的固定地址。ip可变，mac一般不会变。<br>通常通讯双方需要经过多台计算机和网络设备才能连接到对方（局域网（LAN）除外）。IP地址间传输依靠mac地址，中转时利用下一站的mac地址搜索下一个中转目标。<br>这时需要先利用ARP（address resolution protocol）通过ip反查出mac地址。ARP是解析地址的协议。<br><br>2.2 TCP<br>TCP提供可靠的字节流服务。字节流服务：为了方便传输，大块数据被分割成以报文段为单位的字节流传输。<br>三次握手：发送端发出带有SYN标志的数据包给对方；接收端确认后，发回带有SYN/ACK标志的数据包；发送端再回传带有ACK的数据包，代表”握手”结束。<br>如果握手期间中断，则会以同样的顺序发送相同的数据包<br><br>2.3 DNS<br>DNS 用来转换域名和ip地址<br><br>2.4 IP/TCP/DNS与http之间的关系</p>
+<p><img src="/img/http3.png" width="500"></p>
+
+
+
+
+
+
+
+
+
+
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/19/http/图解http1/" data-id="ck8k9er9o000rb4lwvvx5i8by" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js/input" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/14/js/input/" class="article-date">
+  <time datetime="2018-08-14T10:28:13.000Z" itemprop="datePublished">2018-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/14/js/input/">&lt;Input&gt;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>输入大小写字母、数字、下划线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^\w_]/g,&apos;&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入小写字母、数字、下划线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^a-z0-9_]/g,&apos;&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入数字和点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;value=value.replace(/[^\d.]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入中文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入数字:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/\D/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入英文:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^a-zA-Z]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入中文、数字、英文:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input onkeyup=&quot;value=value.replace(/[^\w\u4E00-\u9FA5]/g, &apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入数字和字母：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input onKeyUp=&quot;value=value.replace(/[\W]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/14/js/input/" data-id="ck8k9er9v0011b4lwsyxy326p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/career/">career</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-linux/">python linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Post</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/03/linux/删除中文名文件/">删除中文名文件.Md</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/02/hive/groupby/">Groupby</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 ZHUOQI LI<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

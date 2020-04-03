@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Bandit算法 | 卓奇的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MAB问题一个赌徒，要去摇老虎机，走进赌场一看，一排老虎机，外表一模一样，但是每个老虎机吐钱的概率可不一样，他不知道每个老虎机吐钱的概率可不一样，他不知道每个老虎机吐钱的概率分布是什么，那么想最大化收益该怎么整？ 这就是多臂赌博机问题，简称MAB问题。  假设一个用户对不同类别的内容感兴趣程度不同，当推荐系统初次见到这个用户时，怎么快速地知道他对每类内容的感兴趣程度？这也是推荐系统常常面对的冷启动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bandit算法">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/machine_learning/Recommend_System/bandit算法/index.html">
+<meta property="og:site_name" content="卓奇的博客">
+<meta property="og:description" content="MAB问题一个赌徒，要去摇老虎机，走进赌场一看，一排老虎机，外表一模一样，但是每个老虎机吐钱的概率可不一样，他不知道每个老虎机吐钱的概率可不一样，他不知道每个老虎机吐钱的概率分布是什么，那么想最大化收益该怎么整？ 这就是多臂赌博机问题，简称MAB问题。  假设一个用户对不同类别的内容感兴趣程度不同，当推荐系统初次见到这个用户时，怎么快速地知道他对每类内容的感兴趣程度？这也是推荐系统常常面对的冷启动">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/MAB1.png">
+<meta property="og:image" content="http://yoursite.com/img/MAB2.png">
+<meta property="og:image" content="http://yoursite.com/img/MAB3.png">
+<meta property="og:image" content="http://yoursite.com/img/MAB4.png">
+<meta property="og:updated_time" content="2019-09-03T13:54:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bandit算法">
+<meta name="twitter:description" content="MAB问题一个赌徒，要去摇老虎机，走进赌场一看，一排老虎机，外表一模一样，但是每个老虎机吐钱的概率可不一样，他不知道每个老虎机吐钱的概率可不一样，他不知道每个老虎机吐钱的概率分布是什么，那么想最大化收益该怎么整？ 这就是多臂赌博机问题，简称MAB问题。  假设一个用户对不同类别的内容感兴趣程度不同，当推荐系统初次见到这个用户时，怎么快速地知道他对每类内容的感兴趣程度？这也是推荐系统常常面对的冷启动">
+<meta name="twitter:image" content="http://yoursite.com/img/MAB1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="卓奇的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">卓奇的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">--记录知识</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-machine_learning/Recommend_System/bandit算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/03/machine_learning/Recommend_System/bandit算法/" class="article-date">
+  <time datetime="2019-09-03T13:15:07.000Z" itemprop="datePublished">2019-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Bandit算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MAB问题"><a href="#MAB问题" class="headerlink" title="MAB问题"></a>MAB问题</h2><p>一个赌徒，要去摇老虎机，走进赌场一看，一排老虎机，外表一模一样，但是每个老虎机吐钱的概率可不一样，他不知道每个老虎机吐钱的概率可不一样，<br>他不知道每个老虎机吐钱的概率分布是什么，那么想最大化收益该怎么整？</p>
+<p>这就是多臂赌博机问题，简称MAB问题。</p>
+<ol>
+<li>假设一个用户对不同类别的内容感兴趣程度不同，当推荐系统初次见到这个用户时，怎么快速地知道他对每类内容的感兴趣程度？这也是推荐系统常常面对的冷启动问题。</li>
+<li>假设系统中有若干广告库存物料，该给每个用户展示哪个广告，才能获得最大的点击收益，是不是每次都挑收益最好那个呢？</li>
+<li>算法工程师又设计出了新的策略或者模型，如何既能知道它和旧模型相比谁更靠谱又对风险可控呢？</li>
+</ol>
+<p>推荐系统里面有两个顽疾，一个是冷启动，一个是探索利用问题，后者又称为 EE 问题：Exploit－Explore 问题。针对这两个顽疾，Bandit 算法可以入药。</p>
+<h2 id="Bandit-算法"><a href="#Bandit-算法" class="headerlink" title="Bandit 算法"></a>Bandit 算法</h2><p>Bandit 算法并不是指一个算法，而是一类算法。<br>首先，来定义一下，如何衡量选择的好坏？Bandit 算法的思想是：看看选择会带来多少遗憾，遗憾越少越好。在 MAB 问题里，用来量化选择好坏的指标就是累计遗憾。<br><img src="/img/MAB1.png"></p>
+<p>简单描述一下这个公式。公式有两部分构成：一个是遗憾，一个是累积。求和符号内部就表示每次选择的遗憾多少。</p>
+<p>Wopt 就表示，每次都运气好，选择了最好的选择，该得到多少收益，WBi 就表示每一次实际选择得到的收益，两者之差就是“遗憾”的量化，在 T 次选择后，就有了累积遗憾。</p>
+<p>在这个公式中：为了简化 MAB 问题，每个臂的收益不是 0，就是 1，也就是伯努利收益。</p>
+<p>这个公式可以用来对比不同 Bandit 算法的效果：对同样的多臂问题，用不同的 Bandit 算法模拟试验相同次数，比比看哪个 Bandit 算法的累积遗憾增长得慢，那就是效果较好的算法。</p>
+<p>Bandit 算法的套路就是：小心翼翼地试，越确定某个选择好，就多选择它，越确定某个选择差，就越来越少选择它。</p>
+<p>如果某个选择实验次数较少，导致不确定好坏，那么就多给一些被选择机会，直到确定了它是金子还是石头。简单说就是，把选择的机会给“确定好的”和“还不确定的”。</p>
+<p>Bandit 算法中有几个关键元素：臂，回报，环境。</p>
+<ol>
+<li>臂：是每次选择的候选项，好比就是老虎机，有几个选项就有几个臂；</li>
+<li>回报：就是选择一个臂之后得到的奖励，好比选择一个老虎机之后吐出来的金币；</li>
+<li>环境：就是决定每个臂不同的那些因素，统称为环境。</li>
+</ol>
+<p>将这个几个关键元素对应到推荐系统中来。</p>
+<ol>
+<li>臂：每次推荐要选择候选池，可能是具体物品，也可能是推荐策略，也可能是物品类别；</li>
+<li>回报：用户是否对推荐结果喜欢，喜欢了就是正面的回报，没有买账就是负面回报或者零回报；</li>
+<li>环境：推荐系统面临的这个用户就是不可捉摸的环境。</li>
+</ol>
+<p>下面直接开始陈列出最常用的几个 Bandit 算法。</p>
+<h3 id="汤普森采样算法"><a href="#汤普森采样算法" class="headerlink" title="汤普森采样算法"></a>汤普森采样算法</h3><p>原理： 假设每个臂是否产生收益，起决定作用的是背后有一个概率分布，产生收益的概率为p。</p>
+<p>每个臂背后绑定了一个概率分布；每次做选择是，让每个臂的概率分布各自独立产生一个随机数，按照这个随机数排序，输出产生最大随机数那个臂对应的物品。</p>
+<p>关键在于每个臂背后的概率分布，是一个Beta分布<br><img src="/img/MAB2.png"></p>
+<p>Beta分布有a和b两个参数。这两个参数决定了分布的形状和位置：</p>
+<ol>
+<li>当a+b 值越大，分布曲线就越窄，分布就越集中，产生的随机数会容易靠近中心位置；</li>
+<li>当a/(a+b)的值越大，分布的中心位置就越靠近1，反之就越靠近0，产生的随机数也相应的更容易靠近1或0.</li>
+</ol>
+<p>把Beta分布的a参数看成是推荐后得到用户点击的次数，把分布的b参数看成是没有得到用户点击的次数。</p>
+<ol>
+<li>取出每一个候选对应的参数 a 和 b；</li>
+<li>为每个候选用 a 和 b 作为参数，用贝塔分布产生一个随机数；</li>
+<li>按照随机数排序，输出最大值对应的候选；</li>
+<li>观察用户反馈，如果用户点击则将对应候选的 a 加 1，否则 b 加 1；</li>
+</ol>
+<p>注意，实际上在推荐系统中，要为每一个用户都保存一套参数，比如候选有 m 个，用户有 n 个，那么就要保存 2<em>m</em>n 个参数。</p>
+<p>汤普森采样为什么有效呢？解释一下。</p>
+<ol>
+<li>如果一个候选被选中的次数很多，也就是 a+b 很大了，它的分布会很窄，换句话说这个候选的收益已经非常确定了，用它产生随机数，基本上就在中心位置附近，接近平均收益。</li>
+<li>如果一个候选不但 a+b 很大，即分布很窄，而且 a/(a+b) 也很大，接近 1，那就确定这是个好的候选项，平均收益很好，每次选择很占优势，就进入利用阶段，反之则几乎再无出头之日。</li>
+<li>如果一个候选的 a+b 很小，分布很宽，也就是没有被选择太多次，说明这个候选是好是坏还不太确定，那么用它产生随机数就有可能得到一个较大的随机数，在排序时被优先输出，这就起到了前面说的探索作用。</li>
+</ol>
+<p>用 Python 实现汤普森采样就一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import pymc</span><br><span class="line">choice = numpy.argmax(pymc.rbeta(1 + self.wins, 1 + self.trials - self.wins))</span><br></pre></td></tr></table></figure></p>
+<h3 id="UCB算法"><a href="#UCB算法" class="headerlink" title="UCB算法"></a>UCB算法</h3><p>第二个常用的 Bandit 算法就是 UCB 算法，UCB 算法全称是 Upper Confidence Bound，即置信区间上界。它也为每个臂评分，每次选择评分最高的候选臂输出，每次输出后观察用户反馈，回来更新候选臂的参数。</p>
+<p>每个臂的评分公式为：<br><img src="/img/MAB3.png"></p>
+<p>公式有两部分，加号前面是这个候选臂到目前的平均收益，反应了它的效果，后面的叫做 Bonus，本质上是均值的标准差，反应了候选臂效果的不确定性，就是置信区间的上边界。t 是目前的总选择次数，Tjt 是每个臂被选择次数。</p>
+<p>观察这个公式，如果一个候选的被选择次数很少，即 Tjt 很小，那么它的 Bonus 就会较大，在最后排序输出时有优势，这个 Bonus 反映了一个候选的收益置信区间宽度，Bonus 越大，候选的平均收益置信区间越宽，越不确定，越需要更多的选择机会。</p>
+<p>反之如果平均收益很大，就是说加号左边很大，也会在被选择时有优势。</p>
+<p>这个评分公式也和汤普森采样是一样的思想：</p>
+<ol>
+<li>以每个候选的平均收益为基准线进行选择；</li>
+<li>对于被选择次数不足的给予照顾；</li>
+<li>选择倾向的是那些确定收益较好的候选。</li>
+</ol>
+<h3 id="Epsilon-贪婪算法"><a href="#Epsilon-贪婪算法" class="headerlink" title="Epsilon 贪婪算法"></a>Epsilon 贪婪算法</h3><p>这是一个朴素的算法，也很简单有效，思想有点类似模拟退火，做法如下。</p>
+<ol>
+<li>先选一个 (0,1) 之间较小的数，叫做 Epsilon，也是这个算法名字来历。</li>
+<li>每次以概率 Epsilon 做一件事：所有候选臂中随机选一个，以 1-Epsilon 的概率去选择平均收益最大的那个臂。</li>
+</ol>
+<p>是不是简单粗暴？Epsilon 的值可以控制对探索和利用的权衡程度。这个值越接近 0，在探索上就越保守。</p>
+<p>和这种做法相似，还有一个更朴素的做法：先试几次，等每个臂都统计到收益之后，就一直选均值最大那个臂。</p>
+<p>##效果对比<br>以上几个算法，可以简单用模拟试验的方式对比其效果，如图所示。<br><img src="/img/MAB4.png"></p>
+<p>横坐标是模拟次数增加，可以看成随着时间推移，纵坐标就是累积遗憾，越高说明搞砸的次数越多。在模拟后期，基本上各种算法优劣一目了然。从上到下分别是下面几种。</p>
+<p>完全随机：就是不顾用户反馈的做法。<br>朴素选择：就是认准一个效果好的，一直推。<br>Epsilon 贪婪算法：每次以小概率尝试新的，大概率选择效果好的。<br>UCB：每次都会给予机会较少的候选一些倾向。<br>汤普森采样：用贝塔分布管理每一个候选的效果。</p>
+<p>UCB 算法和汤普森采样都显著优秀很多。</p>
+<p>##冷启动</p>
+<p>推荐系统冷启动问题可以用 Bandit 算法来解决一部分。</p>
+<p>大致思路如下：</p>
+<ol>
+<li>用分类或者 Topic 来表示每个用户兴趣，我们可以通过几次试验，来刻画出新用户心目中对每个 Topic 的感兴趣概率。</li>
+<li>这里，如果用户对某个 Topic 感兴趣，就表示我们得到了收益，如果推给了它不感兴趣的 Topic，推荐系统就表示很遗憾 (regret) 了。</li>
+<li>当一个新用户来了，针对这个用户，我们用汤普森采样为每一个 Topic 采样一个随机数，排序后，输出采样值 Top N 的推荐 Item。注意，这里一次选择了 Top N 个候选臂。</li>
+<li>等着获取用户的反馈，没有反馈则更新对应 Topic 的 b 值，点击了则更新对应 Topic 的 a 值。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/03/machine_learning/Recommend_System/bandit算法/" data-id="ck8k9erb5002ob4lwf2o4y5s7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/22/mac/mac查看隐藏文件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mac查看隐藏文件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/26/mysql/mysql性能优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Post</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/career/">career</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-linux/">python linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Post</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/03/linux/删除中文名文件/">删除中文名文件.Md</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/02/hive/groupby/">Groupby</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 ZHUOQI LI<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

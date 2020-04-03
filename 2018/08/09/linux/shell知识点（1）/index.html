@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Shell知识点（1） | 卓奇的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="shell 中 for 的倒序循环1234for i in `seq 10 -1 1`do    echo $idone 其中seq后面的-1是步长，不写默认为1 shell 多行注释123&amp;lt;&amp;lt;comment    echo &amp;apos;can&amp;apos;t be seen&amp;apos;comment shell 判断文件是否存在并有数据12345if test -s temp.csvt">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell知识点（1）">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/linux/shell知识点（1）/index.html">
+<meta property="og:site_name" content="卓奇的博客">
+<meta property="og:description" content="shell 中 for 的倒序循环1234for i in `seq 10 -1 1`do    echo $idone 其中seq后面的-1是步长，不写默认为1 shell 多行注释123&amp;lt;&amp;lt;comment    echo &amp;apos;can&amp;apos;t be seen&amp;apos;comment shell 判断文件是否存在并有数据12345if test -s temp.csvt">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-04T14:10:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shell知识点（1）">
+<meta name="twitter:description" content="shell 中 for 的倒序循环1234for i in `seq 10 -1 1`do    echo $idone 其中seq后面的-1是步长，不写默认为1 shell 多行注释123&amp;lt;&amp;lt;comment    echo &amp;apos;can&amp;apos;t be seen&amp;apos;comment shell 判断文件是否存在并有数据12345if test -s temp.csvt">
+  
+    <link rel="alternate" href="/atom.xml" title="卓奇的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">卓奇的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">--记录知识</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux/shell知识点（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/09/linux/shell知识点（1）/" class="article-date">
+  <time datetime="2018-08-09T06:25:11.000Z" itemprop="datePublished">2018-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Shell知识点（1）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="shell-中-for-的倒序循环"><a href="#shell-中-for-的倒序循环" class="headerlink" title="shell 中 for 的倒序循环"></a>shell 中 for 的倒序循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in `seq 10 -1 1`</span><br><span class="line">do</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>其中seq后面的-1是步长，不写默认为1</p>
+<h2 id="shell-多行注释"><a href="#shell-多行注释" class="headerlink" title="shell 多行注释"></a>shell 多行注释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;comment</span><br><span class="line">    echo &apos;can&apos;t be seen&apos;</span><br><span class="line">comment</span><br></pre></td></tr></table></figure>
+<h2 id="shell-判断文件是否存在并有数据"><a href="#shell-判断文件是否存在并有数据" class="headerlink" title="shell 判断文件是否存在并有数据"></a>shell 判断文件是否存在并有数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if test -s temp.csv</span><br><span class="line">then </span><br><span class="line">    echo &apos;exist&apos;</span><br><span class="line">else</span><br><span class="line">    echo &apos;no exist&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="shell-文件行数"><a href="#shell-文件行数" class="headerlink" title="shell 文件行数"></a>shell 文件行数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = `cat temp.csv | wc -l`</span><br></pre></td></tr></table></figure>
+<h2 id="shell-判断等于"><a href="#shell-判断等于" class="headerlink" title="shell 判断等于"></a>shell 判断等于</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ $a -eq 1 ]</span><br></pre></td></tr></table></figure>
+<p>注：前后要有空格</p>
+<h2 id="shell-批量打包和批量解压"><a href="#shell-批量打包和批量解压" class="headerlink" title="shell 批量打包和批量解压"></a>shell 批量打包和批量解压</h2><p>批量打包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls | awk &apos;&#123; print &quot;tar zcvf &quot;$0&quot;.tar.gz &quot; $0|&quot;/bin/bash&quot; &#125;&apos;</span><br></pre></td></tr></table></figure></p>
+<p>批量解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls *.tar.gz | xargs -n1 tar xzvf</span><br></pre></td></tr></table></figure></p>
+<h2 id="shell-后台任务实现多进程"><a href="#shell-后台任务实现多进程" class="headerlink" title="shell 后台任务实现多进程"></a>shell 后台任务实现多进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">start=`date +&quot;%s&quot;`</span><br><span class="line">for (( i=0; i&lt;10; i++ ))</span><br><span class="line">do</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;multiprocess&quot;</span><br><span class="line">        sleep 3</span><br><span class="line">    &#125; &amp;  #将上述程序块放到后台执行</span><br><span class="line">done</span><br><span class="line">wait    #等待上述程序结束</span><br><span class="line">end=`date +&quot;%s&quot;`</span><br><span class="line">echo &quot;time: &quot; `expr $end - $start`</span><br></pre></td></tr></table></figure>
+<h2 id="shell-删除乱码文件"><a href="#shell-删除乱码文件" class="headerlink" title="shell 删除乱码文件"></a>shell 删除乱码文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">首先 ls -i 查找出文件的inode值</span><br><span class="line">然后 find . -inum inode -delete 就可以删除文件了</span><br></pre></td></tr></table></figure>
+<h2 id="shell-vim中文乱码-但cat中文正常"><a href="#shell-vim中文乱码-但cat中文正常" class="headerlink" title="shell vim中文乱码 但cat中文正常"></a>shell vim中文乱码 但cat中文正常</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在.vimrc中添加</span><br><span class="line"></span><br><span class="line">set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936</span><br><span class="line">set encoding=utf-8</span><br></pre></td></tr></table></figure>
+<h2 id="sed-直接替换字符串，不是文件"><a href="#sed-直接替换字符串，不是文件" class="headerlink" title="sed 直接替换字符串，不是文件"></a>sed 直接替换字符串，不是文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &quot;s/,/&apos;,&apos;/g&quot; &lt;&lt;&lt; &quot;A,B,C&quot;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/09/linux/shell知识点（1）/" data-id="ck8k9era4001eb4lwb8fpvg4k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/14/js/input/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          &lt;Input&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/05/markdown/markdown格式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Markdown格式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/career/">career</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-linux/">python linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Post</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/03/linux/删除中文名文件/">删除中文名文件.Md</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/02/hive/groupby/">Groupby</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 ZHUOQI LI<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

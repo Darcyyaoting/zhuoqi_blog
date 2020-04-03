@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>图解Http7 | 卓奇的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第七章 确保web安全的https http的缺点 1.1 通信使用明文（不加密），内容可能被窃听； 抓包工具：wireshark等 应对措施：加密处理 第一种是通信加密：http中没有加密机制，但可以和ssl（secure socket layer）或者tls（transport layer security）的组合使用，加密http的通内容 第二种是内容加密 1.2 不验证通信方的内容，有可能">
+<meta name="keywords" content="HTTP TCP&#x2F;IP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图解Http7">
+<meta property="og:url" content="http://yoursite.com/2018/08/26/http/图解http7/index.html">
+<meta property="og:site_name" content="卓奇的博客">
+<meta property="og:description" content="第七章 确保web安全的https http的缺点 1.1 通信使用明文（不加密），内容可能被窃听； 抓包工具：wireshark等 应对措施：加密处理 第一种是通信加密：http中没有加密机制，但可以和ssl（secure socket layer）或者tls（transport layer security）的组合使用，加密http的通内容 第二种是内容加密 1.2 不验证通信方的内容，有可能">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/http7.png">
+<meta property="og:updated_time" content="2018-08-26T05:59:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图解Http7">
+<meta name="twitter:description" content="第七章 确保web安全的https http的缺点 1.1 通信使用明文（不加密），内容可能被窃听； 抓包工具：wireshark等 应对措施：加密处理 第一种是通信加密：http中没有加密机制，但可以和ssl（secure socket layer）或者tls（transport layer security）的组合使用，加密http的通内容 第二种是内容加密 1.2 不验证通信方的内容，有可能">
+<meta name="twitter:image" content="http://yoursite.com/img/http7.png">
+  
+    <link rel="alternate" href="/atom.xml" title="卓奇的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">卓奇的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">--记录知识</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-http/图解http7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/26/http/图解http7/" class="article-date">
+  <time datetime="2018-08-26T03:41:28.000Z" itemprop="datePublished">2018-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      图解Http7
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第七章-确保web安全的https"><a href="#第七章-确保web安全的https" class="headerlink" title="第七章 确保web安全的https"></a>第七章 确保web安全的https</h2><ol>
+<li><p><font color="red"><b>http的缺点</b></font><br><br> 1.1 通信使用明文（不加密），内容可能被窃听；<br> 抓包工具：wireshark等<br> 应对措施：加密处理<br> 第一种是通信加密：http中没有加密机制，但可以和ssl（secure socket layer）或者tls（transport layer security）的组合使用，加密http的通内容<br> 第二种是内容加密<br> 1.2 不验证通信方的内容，有可能遭遇伪装<br> 应对措施：证书<br> 证书由值得信赖的第三方机构颁发，客户端发送请求之前先向第三方机构确认服务端证书<br> 1.3 无法证明报文的完整性，有可能被篡改<br> 请求或响应在传输途中被篡改的攻击叫中间人攻击（man-in-the-middle attack,MITM）</p>
+</li>
+<li><p><font color="red"><b>http+加密+证书+完整性保护 = https</b></font><br><br> https是通信接口部分用ssl和tls代替的http。通常http和tcp直接通信，使用ssl时，变成http首先和ssl通信，然后ssl和tcp通信<br> </p><p><img src="/img/http7.png" width="500px"></p><br> ssl 是独立于http的协议，其他运行在应用层的协议如：SMTP、Telnet等都可以配合ssl使用。ssl是目前应用最为广泛的网络安全技术。<br> 2.1 加密技术<br> 加密方法中加密算法都是公开的，密钥是私有的，加密和解密都要用到密钥。加密和解密使用同一份密钥叫做共享密钥加密，也被叫做对称密钥加密。但是在传输密钥时如果被窃听，则失去了密钥的意义。<br> 公开密钥加密：使用公开密钥和私有密钥，所以是非对称密钥加密。使用公开密钥加密，使用私有密钥解密通信。<br> https使用公开密钥和共享密钥混合的加密方式。使用公开密钥加密传输密钥，然后使用共享密钥加密传输报文。因为公开密钥加密比共享密钥加密要复杂的多，也消耗更多的时间。<br> 2.2 证书<br> 公开密钥如果被篡改，不是原先服务器的公开密钥，那么会有危险。需要使用由数字证书认证机构颁发的公开密钥证书。<p></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/26/http/图解http7/" data-id="ck8k9er9u000zb4lwkjl1mgg8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/05/hive/hive处理脏数据/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hive处理IOT脏数据
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/23/http/图解http4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">图解Http4</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/career/">career</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-linux/">python linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Post</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/03/linux/删除中文名文件/">删除中文名文件.Md</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/02/hive/groupby/">Groupby</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 ZHUOQI LI<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
