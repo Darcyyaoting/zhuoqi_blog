@@ -7,18 +7,18 @@
   
   <title>Linux服务器间传输文件 | 卓奇的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径">
+  <meta name="description" content="scp 复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径 scp和rsync的区别scp是s">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux服务器间传输文件">
 <meta property="og:url" content="http://yoursite.com/2019/04/03/linux/linux服务器间传输文件/index.html">
 <meta property="og:site_name" content="卓奇的博客">
-<meta property="og:description" content="复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径">
+<meta property="og:description" content="scp 复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径 scp和rsync的区别scp是s">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-03T07:26:42.000Z">
+<meta property="og:updated_time" content="2020-04-05T14:38:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux服务器间传输文件">
-<meta name="twitter:description" content="复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径">
+<meta name="twitter:description" content="scp 复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径 scp和rsync的区别scp是s">
   
     <link rel="alternate" href="/atom.xml" title="卓奇的博客" type="application/atom+xml">
   
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
+        <h3 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h3><ol>
 <li>复制文件<br>将本地文件拷贝到远程<br>scp 文件名 –用户名@计算机IP或者计算机名称:远程路径</li>
 </ol>
 <p>从远程将文件拷回本地<br>scp –用户名@计算机IP或者计算机名称:文件名 本地路径</p>
@@ -99,11 +99,19 @@
 <li>复制目录<br>将本地目录拷贝到远程<br>scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径</li>
 </ol>
 <p>从远程将目录拷回本地<br>scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径</p>
+<h3 id="scp和rsync的区别"><a href="#scp和rsync的区别" class="headerlink" title="scp和rsync的区别"></a>scp和rsync的区别</h3><p>scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。。。</p>
+<p>一般而言，我们会选择使用rsync进行远程同步或拷贝。rsync和scp的区别在于：</p>
+<ol>
+<li>rsync只对差异文件做更新，可以做增量或全量备份；而scp只能做全量备份。简单说就是rsync只传修改了的部分，如果改动较小就不需要全部重传，所以rsync备份速度较快；默认情况下，rsync通过比较文件的最后修改时间（mtime）和文件的大小（size）来确认哪些文件需要被同步过去；</li>
+<li>rsync是分块校验+传输，scp是整个文件传输。rsync比scp有优势的地方在于单个大文件的一小部分存在改动时，只需传输改动部分，无需重新传输整个文件。如果传输一个新的文件，理论上rsync没有优势；</li>
+<li>rsync不是加密传输，而scp是加密传输，scp在跨机器复制的时候为了提高数据的安全性，使用了ssh连接和加密方式，可能会稍微影响一下速度，如果机器之间配置了ssh免密码登录，那在使用scp的时候密码都不用输入，当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来；</li>
+<li>虽然 rsync比scp会快一点，但当小文件众多的情况下，rsync会导致硬盘I/O非常高，而scp基本不影响系统正常使用；</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/03/linux/linux服务器间传输文件/" data-id="ck8k9era00019b4lw93y52d3d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/03/linux/linux服务器间传输文件/" data-id="ck8n5jd1q00193slw7tb7qz59" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
