@@ -66,6 +66,126 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mysql/导入导出sql文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/15/mysql/导入导出sql文件/" class="article-date">
+  <time datetime="2019-05-15T03:41:12.000Z" itemprop="datePublished">2019-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/15/mysql/导入导出sql文件/">导入导出Sql文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>window下</p>
+<p>1.导出整个数据库<br>mysqldump -h host -u 用户名 -p 数据库名 &gt; 导出的文件名<br>mysqldump -h host -u dbuser -p dbname &gt; dbname.sql</p>
+<p>2.导出一个表<br>mysqldump -h host -u 用户名 -p 数据库名 表名&gt; 导出的文件名<br>mysqldump -h host -u dbuser -p dbname users&gt; dbname_users.sql</p>
+<p>3.导出一个数据库结构<br>mysqldump -h host -u dbuser -p -d –add-drop-table dbname &gt;d:/dbname_db.sql<br>-d 没有数据 –add-drop-table 在每个create语句之前增加一个drop table</p>
+<p>4.导入数据库<br>常用source 命令<br>进入mysql数据库控制台，如<br>mysql -u root -p<br>mysql&gt;use 数据库<br>然后使用source命令，后面参数为脚本文件(如这里用到的.sql)<br>mysql&gt;source d:/dbname.sql</p>
+<ol>
+<li>导入数据到数据库</li>
+</ol>
+<p>mysql -h host -uroot -D数据库名 </p>
+<ol>
+<li>导入数据到数据库中得某个表</li>
+</ol>
+<p>mysql -h host -uroot -D数据库名  表名</p>
+<p>D:\APMServ5.2.6\MySQL5.1\bin&gt;mysqldump -u root -p  erp lightinthebox_tags &gt; ligh<br>tinthebox.sql</p>
+<p>linux下</p>
+<p>一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）：<br>1、导出数据和表结构：<br>mysqldump -h host -u用户名 -p密码 数据库名 &gt; 数据库名.sql<br>例如 mysqldump -h host -uroot -p abc &gt; abc.sql<br>敲回车后会提示输入密码</p>
+<p>2、只导出表结构<br>mysqldump -h host -u用户名 -p密码 -d 数据库名 &gt; 数据库名.sql<br>例如 mysqldump -uroot -p -d abc &gt; abc.sql</p>
+<p>二、导入数据库<br>source /home/abc/abc.sql;<br>方法二：<br>mysql -u用户名 -p密码 数据库名 &lt; 数据库名.sql<br>例如 mysql -h host -uabc_f -p abc &lt; abc.sql</p>
+<p>常见问题：</p>
+<ol>
+<li><p>Access denied; you need (at least one of) the SUPER privilege(s) for this operation</p>
+<p> Either remove the DEFINER=.. statement from your sqldump file, or replace the user values with CURRENT_USER.<br> The MySQL server provided by RDS does not allow a DEFINER syntax for another user (in my experience).<br> You can use a sed script to remove them from the file:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &apos;s/\sDEFINER=`[^`]*`@`[^`]*`//g&apos; -i oldfile.sql</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/15/mysql/导入导出sql文件/" data-id="ck8r1hso2001jkjlwyaokwdze" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="posts-linux/kill-process" class="article article-type-posts" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/14/linux/kill-process/" class="article-date">
+  <time datetime="2019-04-14T04:15:49.000Z" itemprop="datePublished">2019-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/14/linux/kill-process/">Kill Process</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大家对kill -9 肯定非常熟悉，在工作中也经常用到。特别是你去重启tomcat时。可是多半看来，我们对-9的理解只是表面而已。</p>
+<p>很少有人（包括我）认真的去了解一下 kill -n 这个n到底是什么东东。自我批评一下。</p>
+<p>好吧。我们来好好的认识一下这个熟悉的陌生人。</p>
+<p>1）kill<br>kill pid</p>
+<p>2）kill -l（查看Linux/Unix的信号变量）</p>
+<p>3）（kill pid） 、（ kill -15 pid）</p>
+<p>系统会发送一个SIGTERM的信号给对应的程序。当程序接收到该signal后，将会发生以下的事情</p>
+<ol>
+<li>程序立刻停止</li>
+<li>当程序释放相应资源后再停止</li>
+<li>程序可能仍然继续运行</li>
+</ol>
+<p>大部分程序接收到SIGTERM信号后，会先释放自己的资源，然后在停止。但是也有程序可以在接受到信号量后，做一些其他的事情，并且这些事情是可以<br>配置的。如果程序正在等待IO，可能就不会立马做出相应。<br>也就是说，SIGTERM多半是会被阻塞的、忽略。</p>
+<p>4）kill  -9 pid</p>
+<p>你不是可以不响应 SIGTERM吗？？那好，我给你下一道必杀令，我看你还不乖乖的。多半admin会用这个命令</p>
+<p>不过，也不是所有的程序都会乖乖听话，总有那些状态下的程序无法立刻相应。</p>
+<p>附录：</p>
+<p>linux signals</p>
+<p>Signal Name    Number    Description<br>SIGHUP    1    Hangup (POSIX)<br>SIGINT    2    Terminal interrupt (ANSI)<br>SIGQUIT    3    Terminal quit (POSIX)<br>SIGILL    4    Illegal instruction (ANSI)<br>SIGTRAP    5    Trace trap (POSIX)<br>SIGIOT    6    IOT Trap (4.2 BSD)<br>SIGBUS    7    BUS error (4.2 BSD)<br>SIGFPE    8    Floating point exception (ANSI)<br>SIGKILL    9    Kill(can’t be caught or ignored) (POSIX)<br>SIGUSR1    10    User defined signal 1 (POSIX)<br>SIGSEGV    11    Invalid memory segment access (ANSI)<br>SIGUSR2    12    User defined signal 2 (POSIX)<br>SIGPIPE    13    Write on a pipe with no reader, Broken pipe (POSIX)<br>SIGALRM    14    Alarm clock (POSIX)<br>SIGTERM    15    Termination (ANSI)<br>SIGSTKFLT    16    Stack fault<br>SIGCHLD    17    Child process has stopped or exited, changed (POSIX)<br>SIGCONT    18    Continue executing, if stopped (POSIX)<br>SIGSTOP    19    Stop executing(can’t be caught or ignored) (POSIX)<br>SIGTSTP    20    Terminal stop signal (POSIX)<br>SIGTTIN    21    Background process trying to read, from TTY (POSIX)<br>SIGTTOU    22    Background process trying to write, to TTY (POSIX)<br>SIGURG    23    Urgent condition on socket (4.2 BSD)<br>SIGXCPU    24    CPU limit exceeded (4.2 BSD)<br>SIGXFSZ    25    File size limit exceeded (4.2 BSD)<br>SIGVTALRM    26    Virtual alarm clock (4.2 BSD)<br>SIGPROF    27    Profiling alarm clock (4.2 BSD)<br>SIGWINCH    28    Window size change (4.3 BSD, Sun)<br>SIGIO    29    I/O now possible (4.2 BSD)<br>SIGPWR    30    Power failure restart (System V)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/14/linux/kill-process/" data-id="ck8r1hsnk000rkjlw56rur5qb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hive/分区表加列" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/10/hive/分区表加列/" class="article-date">
@@ -93,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/10/hive/分区表加列/" data-id="ck8n5sx9z000mp8lw2ntwhxsj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/10/hive/分区表加列/" data-id="ck8r1hsna000ekjlwprgfoxl3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
@@ -143,11 +263,12 @@
 <li>rsync不是加密传输，而scp是加密传输，scp在跨机器复制的时候为了提高数据的安全性，使用了ssh连接和加密方式，可能会稍微影响一下速度，如果机器之间配置了ssh免密码登录，那在使用scp的时候密码都不用输入，当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来；</li>
 <li>虽然 rsync比scp会快一点，但当小文件众多的情况下，rsync会导致硬盘I/O非常高，而scp基本不影响系统正常使用；</li>
 </ol>
+<h3 id="xsync-集群分发脚本"><a href="#xsync-集群分发脚本" class="headerlink" title="xsync 集群分发脚本"></a>xsync 集群分发脚本</h3><p>循环复制文件到所有节点相同的目录下</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/03/linux/linux服务器间传输文件/" data-id="ck8n5sxaj001ep8lwf359xzzw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/03/linux/linux服务器间传输文件/" data-id="ck8r1hsno000wkjlwqlnesz2b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -194,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/03/linux/文件批量处理/" data-id="ck8n5sxau001pp8lwhisl0vna" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/03/linux/文件批量处理/" data-id="ck8r1hsnv0019kjlw7dxmjdx2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -233,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/01/linux/linux文件系统web页面/" data-id="ck8n5sxai001bp8lwubv78tex" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/01/linux/linux文件系统web页面/" data-id="ck8r1hsnl000skjlweatnnif3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-linux/">python linux</a></li></ul>
@@ -273,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/hive/create-table坑/" data-id="ck8n5sx9n000cp8lwmbimcxvg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/hive/create-table坑/" data-id="ck8r1hsmu0001kjlwuhx8girr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
@@ -319,7 +440,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/21/hadoop/hadoop监控界面查看完整sql/" data-id="ck8n5sx9e0005p8lwfsgrxvfd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/21/hadoop/hadoop监控界面查看完整sql/" data-id="ck8r1hsmz0003kjlw2dsolkmf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -380,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/21/hive/hive常用set/" data-id="ck8n5sx9y000kp8lwyvvov4u4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/21/hive/hive常用set/" data-id="ck8r1hsn8000dkjlw6er8bf4t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
@@ -428,7 +549,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/17/hadoop/job相关命令/" data-id="ck8n5sx9g0008p8lwhtoj0vns" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/17/hadoop/job相关命令/" data-id="ck8r1hsn00004kjlw7vu811ww" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
@@ -440,88 +561,11 @@
 
 
   
-    <article id="post-python/crontab调用python错误" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/06/python/crontab调用python错误/" class="article-date">
-  <time datetime="2018-12-06T05:02:04.000Z" itemprop="datePublished">2018-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/python/crontab调用python错误/">Crontab调用python错误</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>问题：crontab调用python时出现ImportError: No module named XXX， 但是shell里单独执行是OK的</p>
-<p>解决方法：<br>因为crontab 默认找 python 的默认路径，所以需要指定 python 路径<br>首先，<code>which python</code>，确定python的路径<br>然后把整个python的路径都复制进crontab里去</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/06/python/crontab调用python错误/" data-id="ck8n5sxb50022p8lwbsol9okx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="posts-hive/删分区" class="article article-type-posts" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/23/hive/删分区/" class="article-date">
-  <time datetime="2018-11-23T07:35:07.000Z" itemprop="datePublished">2018-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/23/hive/删分区/">删分区</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>删除分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE techain_plugin_mau_coexist DROP IF EXISTS PARTITION(stat_date=&apos;20181115&apos;)</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/23/hive/删分区/" data-id="ck8n5sxa1000pp8lwkywfkfrz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -545,7 +589,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 12.5px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
     </div>
   </div>
 
@@ -567,6 +611,14 @@
       <ul>
         
           <li>
+            <a href="/2020/04/08/python/python画图/">Python画图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/08/python/python发邮件/">Python发邮件</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Linux Vi 中替换不可见字符</a>
           </li>
         
@@ -576,14 +628,6 @@
         
           <li>
             <a href="/2019/11/02/hive/groupby/">Groupby</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
           </li>
         
       </ul>

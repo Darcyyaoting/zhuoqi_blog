@@ -66,6 +66,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python/crontab调用python错误" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/06/python/crontab调用python错误/" class="article-date">
+  <time datetime="2018-12-06T05:02:04.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/06/python/crontab调用python错误/">Crontab调用python错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题：crontab调用python时出现ImportError: No module named XXX， 但是shell里单独执行是OK的</p>
+<p>解决方法：<br>因为crontab 默认找 python 的默认路径，所以需要指定 python 路径<br>首先，<code>which python</code>，确定python的路径<br>然后把整个python的路径都复制进crontab里去</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/06/python/crontab调用python错误/" data-id="ck8r1hso3001mkjlwf4ztgnai" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="posts-hive/删分区" class="article article-type-posts" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/23/hive/删分区/" class="article-date">
+  <time datetime="2018-11-23T07:35:07.000Z" itemprop="datePublished">2018-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/23/hive/删分区/">删分区</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>删除分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE techain_plugin_mau_coexist DROP IF EXISTS PARTITION(stat_date=&apos;20181115&apos;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/23/hive/删分区/" data-id="ck8r1hsnc000gkjlwji07zc0v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="posts-hive/删去某个条件的行" class="article article-type-posts" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/22/hive/删去某个条件的行/" class="article-date">
@@ -96,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/22/hive/删去某个条件的行/" data-id="ck8n5sxa3000rp8lw9nm6576k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/22/hive/删去某个条件的行/" data-id="ck8r1hsnd000ikjlwhq2qtyk6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/22/pandas/read-csv中文编码/" data-id="ck8n5sxb40021p8lwzewx1fes" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/22/pandas/read-csv中文编码/" data-id="ck8r1hsnz001fkjlwr1j5j7k3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -171,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/19/hive/count(distinct)/" data-id="ck8n5sx9j000ap8lwwqokbs2t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/19/hive/count(distinct)/" data-id="ck8r1hsmc0000kjlwav9jg474" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
@@ -232,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/hive/hive处理脏数据/" data-id="ck8n5sx9s000gp8lwfx1azk00" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/hive/hive处理脏数据/" data-id="ck8r1hsn10005kjlwgbuwt8v6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
@@ -276,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/http/图解http7/" data-id="ck8n5sxaa0011p8lwear7j8sy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/http/图解http7/" data-id="ck8r1hsoe0022kjlwapy4agij" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
@@ -321,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/http/图解http4/" data-id="ck8n5sxa80010p8lw1vppdcwp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/http/图解http4/" data-id="ck8r1hsoc001zkjlwd26fsqi8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
@@ -366,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/http/图解http3/" data-id="ck8n5sxa7000yp8lw6iq5040p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/http/图解http3/" data-id="ck8r1hsob001ykjlwi2vyaq68" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
@@ -415,116 +492,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/20/http/图解http2/" data-id="ck8n5sxa6000wp8lwhkeu10kq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/20/http/图解http2/" data-id="ck8r1hsoa001vkjlw8ie7g0zj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-http/图解http1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/19/http/图解http1/" class="article-date">
-  <time datetime="2018-08-19T07:09:42.000Z" itemprop="datePublished">2018-08-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/19/http/图解http1/">图解Http(1)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一章-：了解web及网络基础"><a href="#第一章-：了解web及网络基础" class="headerlink" title="第一章 ：了解web及网络基础"></a>第一章 ：了解web及网络基础</h2><ul>
-<li>WWW 3项构建技术：HTML(hypertext markup language)、 HTTP(hypertext transfer protocol)、 URL(uniform resource locator);<br>WWW 也简称为Web</li>
-<li>不同的硬件、操作系统之间的通信需要统一成一种规则，叫做协议（protocol）</li>
-</ul>
-<h3 id="TCP-IP-协议族"><a href="#TCP-IP-协议族" class="headerlink" title="TCP/IP 协议族"></a>TCP/IP 协议族</h3><ol>
-<li><p><font color="red"><b>TCP/IP</b></font><br><br>分层：应用层、传输层、网络层、链路层；为什么需要分层：因为需要改变时不需要改变整个协议，而是改变某层协议就行了。<br>1.1 应用层<br>应用层决定了向用户提供应用服务时通信的活动，如：FTP（file transfer protocol）、DNS（domain name system）、HTTP（hypertext transfer protocol）<br>1.2 传输层<br>传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，如：TCP（transmission control protocol）、UDP（user data protocol）<br>1.3 网络层<br>网络层用来处理在网络上流动的数据包。数据包是网络传输的最小数据单位，网络层规定了通过怎样的路径到达对方计算机，并把包给对方<br>1.4 链路层<br>用来处理连接网络的硬件部分<br>1.5 TCP/IP 通信传输流</p>
-<p><img src="/img/http1.png" width="500">传输数据包</p><br><br><p><img src="/img/http2.png" width="500">封装数据包</p>
-</li>
-<li><p><font color="red"><b>与http关系密切的协议：IP/TCP/DNS</b></font><br><br>2.1 IP(internet protocol)<br>IP协议的作用是把数据包传输给对方，要保证确实传输到某个地方，则需要满足某些条件，其中最重要的是IP地址和mac地址（media access control address）。<br>IP地址指明了节点被分配的地址，mac地址指明了网卡所属的固定地址。ip可变，mac一般不会变。<br>通常通讯双方需要经过多台计算机和网络设备才能连接到对方（局域网（LAN）除外）。IP地址间传输依靠mac地址，中转时利用下一站的mac地址搜索下一个中转目标。<br>这时需要先利用ARP（address resolution protocol）通过ip反查出mac地址。ARP是解析地址的协议。<br><br>2.2 TCP<br>TCP提供可靠的字节流服务。字节流服务：为了方便传输，大块数据被分割成以报文段为单位的字节流传输。<br>三次握手：发送端发出带有SYN标志的数据包给对方；接收端确认后，发回带有SYN/ACK标志的数据包；发送端再回传带有ACK的数据包，代表”握手”结束。<br>如果握手期间中断，则会以同样的顺序发送相同的数据包<br><br>2.3 DNS<br>DNS 用来转换域名和ip地址<br><br>2.4 IP/TCP/DNS与http之间的关系</p>
-<p><img src="/img/http3.png" width="500"></p>
-
-
-
-
-
-
-
-
-
-
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/19/http/图解http1/" data-id="ck8n5sxa4000up8lwypgsw4z4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js/input" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/14/js/input/" class="article-date">
-  <time datetime="2018-08-14T10:28:13.000Z" itemprop="datePublished">2018-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/14/js/input/">&lt;Input&gt;</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>输入大小写字母、数字、下划线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^\w_]/g,&apos;&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>输入小写字母、数字、下划线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^a-z0-9_]/g,&apos;&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>输入数字和点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;value=value.replace(/[^\d.]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>输入中文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>输入数字:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/\D/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>输入英文:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^a-zA-Z]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>输入中文、数字、英文:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input onkeyup=&quot;value=value.replace(/[^\w\u4E00-\u9FA5]/g, &apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>输入数字和字母：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input onKeyUp=&quot;value=value.replace(/[\W]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/14/js/input/" data-id="ck8n5sxac0014p8lwzjn7awrj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </footer>
   </div>
@@ -537,7 +508,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -561,7 +532,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 12.5px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
     </div>
   </div>
 
@@ -583,6 +554,14 @@
       <ul>
         
           <li>
+            <a href="/2020/04/08/python/python画图/">Python画图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/08/python/python发邮件/">Python发邮件</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Linux Vi 中替换不可见字符</a>
           </li>
         
@@ -592,14 +571,6 @@
         
           <li>
             <a href="/2019/11/02/hive/groupby/">Groupby</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
           </li>
         
       </ul>

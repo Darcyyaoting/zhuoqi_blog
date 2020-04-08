@@ -5,23 +5,15 @@
   
 
   
-  <title>图解Http2 | 卓奇的博客</title>
+  <title>Archives | 卓奇的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第二章 简单的http协议http请求和响应  请求报文由以下几部分构成：请求方法、请求URI、协议版本、可选的请求首部字段和内容实体 响应报文由以下几部分构成：协议版本、状态码（表示请求成功或失败的数字代码）、用以解释状态码的原因短语、可选的响应首部字段以及实体主体 http是一种无状态协议，对请求和响应之间的通信状态不进行保存。所以引进了cookie技术。 请求URIGET http://ha">
-<meta name="keywords" content="HTTP TCP&#x2F;IP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="图解Http2">
-<meta property="og:url" content="http://yoursite.com/2018/08/20/http/图解http2/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="卓奇的博客">
+<meta property="og:url" content="http://yoursite.com/archives/page/5/index.html">
 <meta property="og:site_name" content="卓奇的博客">
-<meta property="og:description" content="第二章 简单的http协议http请求和响应  请求报文由以下几部分构成：请求方法、请求URI、协议版本、可选的请求首部字段和内容实体 响应报文由以下几部分构成：协议版本、状态码（表示请求成功或失败的数字代码）、用以解释状态码的原因短语、可选的响应首部字段以及实体主体 http是一种无状态协议，对请求和响应之间的通信状态不进行保存。所以引进了cookie技术。 请求URIGET http://ha">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/http4.png">
-<meta property="og:image" content="http://yoursite.com/img/http5.png">
-<meta property="og:updated_time" content="2018-08-23T03:32:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图解Http2">
-<meta name="twitter:description" content="第二章 简单的http协议http请求和响应  请求报文由以下几部分构成：请求方法、请求URI、协议版本、可选的请求首部字段和内容实体 响应报文由以下几部分构成：协议版本、状态码（表示请求成功或失败的数字代码）、用以解释状态码的原因短语、可选的响应首部字段以及实体主体 http是一种无状态协议，对请求和响应之间的通信状态不进行保存。所以引进了cookie技术。 请求URIGET http://ha">
-<meta name="twitter:image" content="http://yoursite.com/img/http4.png">
+<meta name="twitter:title" content="卓奇的博客">
   
     <link rel="alternate" href="/atom.xml" title="卓奇的博客" type="application/atom+xml">
   
@@ -72,73 +64,45 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-http/图解http2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/20/http/图解http2/" class="article-date">
-  <time datetime="2018-08-20T04:45:55.000Z" itemprop="datePublished">2018-08-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      图解Http2
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/07/29/career/职业道路思考（1）/" class="archive-article-date">
+  <time datetime="2018-07-29T03:42:27.000Z" itemprop="datePublished">Jul 29</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/29/career/职业道路思考（1）/">职业道路思考（1）</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第二章-简单的http协议"><a href="#第二章-简单的http协议" class="headerlink" title="第二章 简单的http协议"></a>第二章 简单的http协议</h2><p><font color="red"><b>http请求和响应</b></font><br></p>
-<ol>
-<li>请求报文由以下几部分构成：请求方法、请求URI、协议版本、可选的请求首部字段和内容实体<br><p><img src="/img/http4.png" width="500px"></p><br><br></li>
-<li>响应报文由以下几部分构成：协议版本、状态码（表示请求成功或失败的数字代码）、用以解释状态码的原因短语、<br>可选的响应首部字段以及实体主体<br><p><img src="/img/http5.png" width="500px"></p><br><br></li>
-<li>http是一种无状态协议，对请求和响应之间的通信状态不进行保存。所以引进了cookie技术。<br><br></li>
-<li>请求URI<br>GET <a href="http://hackr.jp/index.htm" target="_blank" rel="noopener">http://hackr.jp/index.htm</a> HTTP/1.1 或者<br>GET /index.htm HTTP/1.1<br>Host: hackr.jp<br>如果不是访问特定资源而是对服务器本身发起请求，可以用<code>*</code>代替请求URI，比如：<br>OPTIONS * HTTP/1.1<br><br></li>
-<li>HTTP方法<br>GET：用来请求访问已被URI识别的资源。<br>请求：GET /index.html HTTP/1.1<br> Host: <a href="http://www.hackr.jp" target="_blank" rel="noopener">www.hackr.jp</a><br>响应：返回 index.html 的页面资源<br>POST：传输实体主体<br>请求：POST /submit.cgi HTTP/1.1<br>  Host: <a href="http://www.hackr.jp" target="_blank" rel="noopener">www.hackr.jp</a><br>  Content-Length: 1560（1560字节的数据）<br>响应： 返回submit.cgi接收数据的处理结果<br>PUT：传输文件<br>像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置。但是因为不带验证机制，一般的web网站不使用此方法（rest标准的web网站可能开放）<br>DELETE：删除文件<br><br></li>
-<li>持久连接<br>http早期采用每完成一次请求之后，就断开tcp一次，即<b>tcp三次握手四次挥手</b>，这样会浪费很多tcp连接时间。后来http1.1改为持久连接，即如果一方不声明断开连接，则保持tcp连接状态<br><br></li>
-<li>管线化<br>一次http请求发送后不用等待回应可以发送下一次请求，即同时并行发送多个请求。<br><br></li>
-<li>cookie<br>请求报文（没有cookie信息的状态）<br>GET /reader/ HTTP/1.1<br>Host: hackr.jp<br>*首部字段内没有cookie的相关信息<br><br>响应报文（服务器端生成cookie信息）<br>HTTP/1.1 200 OK<br>Date: Thu, 12 Jul 2012 07:12:20 GMT<br>Server: Apache<br>&lt;Set-Cookie: sid=1342077140226724; path=/; expires=Wed, 10-Oct-12 07:12:20 GMT&gt;<br>Content-Type: text/plain; charset=UTF-8<br><br>请求报文（自动发送保存着的cookie信息）<br>GET /image/ HTTP/1.1<br>Host: hackr.jp<br>Cookie: sid=1342077140226724</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/20/http/图解http2/" data-id="ck8r1hsoa001vkjlw8ie7g0zj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/08/23/http/图解http3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          图解Http3
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/08/19/http/图解http1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">图解Http(1)</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
 
 </section>
         

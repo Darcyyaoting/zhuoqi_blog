@@ -66,6 +66,112 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-http/图解http1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/19/http/图解http1/" class="article-date">
+  <time datetime="2018-08-19T07:09:42.000Z" itemprop="datePublished">2018-08-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/19/http/图解http1/">图解Http(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章-：了解web及网络基础"><a href="#第一章-：了解web及网络基础" class="headerlink" title="第一章 ：了解web及网络基础"></a>第一章 ：了解web及网络基础</h2><ul>
+<li>WWW 3项构建技术：HTML(hypertext markup language)、 HTTP(hypertext transfer protocol)、 URL(uniform resource locator);<br>WWW 也简称为Web</li>
+<li>不同的硬件、操作系统之间的通信需要统一成一种规则，叫做协议（protocol）</li>
+</ul>
+<h3 id="TCP-IP-协议族"><a href="#TCP-IP-协议族" class="headerlink" title="TCP/IP 协议族"></a>TCP/IP 协议族</h3><ol>
+<li><p><font color="red"><b>TCP/IP</b></font><br><br>分层：应用层、传输层、网络层、链路层；为什么需要分层：因为需要改变时不需要改变整个协议，而是改变某层协议就行了。<br>1.1 应用层<br>应用层决定了向用户提供应用服务时通信的活动，如：FTP（file transfer protocol）、DNS（domain name system）、HTTP（hypertext transfer protocol）<br>1.2 传输层<br>传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，如：TCP（transmission control protocol）、UDP（user data protocol）<br>1.3 网络层<br>网络层用来处理在网络上流动的数据包。数据包是网络传输的最小数据单位，网络层规定了通过怎样的路径到达对方计算机，并把包给对方<br>1.4 链路层<br>用来处理连接网络的硬件部分<br>1.5 TCP/IP 通信传输流</p>
+<p><img src="/img/http1.png" width="500">传输数据包</p><br><br><p><img src="/img/http2.png" width="500">封装数据包</p>
+</li>
+<li><p><font color="red"><b>与http关系密切的协议：IP/TCP/DNS</b></font><br><br>2.1 IP(internet protocol)<br>IP协议的作用是把数据包传输给对方，要保证确实传输到某个地方，则需要满足某些条件，其中最重要的是IP地址和mac地址（media access control address）。<br>IP地址指明了节点被分配的地址，mac地址指明了网卡所属的固定地址。ip可变，mac一般不会变。<br>通常通讯双方需要经过多台计算机和网络设备才能连接到对方（局域网（LAN）除外）。IP地址间传输依靠mac地址，中转时利用下一站的mac地址搜索下一个中转目标。<br>这时需要先利用ARP（address resolution protocol）通过ip反查出mac地址。ARP是解析地址的协议。<br><br>2.2 TCP<br>TCP提供可靠的字节流服务。字节流服务：为了方便传输，大块数据被分割成以报文段为单位的字节流传输。<br>三次握手：发送端发出带有SYN标志的数据包给对方；接收端确认后，发回带有SYN/ACK标志的数据包；发送端再回传带有ACK的数据包，代表”握手”结束。<br>如果握手期间中断，则会以同样的顺序发送相同的数据包<br><br>2.3 DNS<br>DNS 用来转换域名和ip地址<br><br>2.4 IP/TCP/DNS与http之间的关系</p>
+<p><img src="/img/http3.png" width="500"></p>
+
+
+
+
+
+
+
+
+
+
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/19/http/图解http1/" data-id="ck8r1hso6001rkjlw0pgtc9jb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-TCP-IP/">HTTP TCP/IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js/input" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/14/js/input/" class="article-date">
+  <time datetime="2018-08-14T10:28:13.000Z" itemprop="datePublished">2018-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/14/js/input/">&lt;Input&gt;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>输入大小写字母、数字、下划线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^\w_]/g,&apos;&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入小写字母、数字、下划线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^a-z0-9_]/g,&apos;&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入数字和点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;value=value.replace(/[^\d.]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入中文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入数字:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/\D/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入英文:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; onkeyup=&quot;this.value=this.value.replace(/[^a-zA-Z]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入中文、数字、英文:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input onkeyup=&quot;value=value.replace(/[^\w\u4E00-\u9FA5]/g, &apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输入数字和字母：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input onKeyUp=&quot;value=value.replace(/[\W]/g,&apos;&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/14/js/input/" data-id="ck8r1hsne000kkjlw3p38788r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linux/shell知识点（1）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/09/linux/shell知识点（1）/" class="article-date">
@@ -105,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/linux/shell知识点（1）/" data-id="ck8n5sxaq001ip8lwy9iw3a2y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/linux/shell知识点（1）/" data-id="ck8r1hsnr0013kjlwbyiforpv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -146,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/05/markdown/markdown格式/" data-id="ck8n5sxaw001up8lwvgrufhy8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/05/markdown/markdown格式/" data-id="ck8r1hsnw001bkjlwd97e7q6l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
@@ -549,7 +655,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/03/linux/vim快捷键/" data-id="ck8n5sxas001kp8lwnnjopmb1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/03/linux/vim快捷键/" data-id="ck8r1hsns0015kjlwtxsswxi6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -590,7 +696,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/31/python/python编码/" data-id="ck8n5sxb60025p8lwm3cou02k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/31/python/python编码/" data-id="ck8r1hso9001ukjlw1utlyxgu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -630,7 +736,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/31/linux/shell发邮件/" data-id="ck8n5sxao001hp8lwx1c7y8wg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/31/linux/shell发邮件/" data-id="ck8r1hsnq0011kjlw5k8mkidx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -668,7 +774,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/29/algorithm/查找算法—— 二分查找/" data-id="ck8n5sx9d0004p8lw507hvqt4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/29/algorithm/查找算法—— 二分查找/" data-id="ck8r1hsnj000okjlwr481v6sa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
@@ -707,7 +813,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/29/algorithm/排序算法—— 选择排序/" data-id="ck8n5sx9b0003p8lw90oggbuv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/29/algorithm/排序算法—— 选择排序/" data-id="ck8r1hsnh000nkjlwluhrx75j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
@@ -746,54 +852,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/29/algorithm/排序算法—— 冒泡排序/" data-id="ck8n5sx8p0000p8lw0an2hu5t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/29/algorithm/排序算法—— 冒泡排序/" data-id="ck8r1hsnf000lkjlwt5hoi599" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-career/职业道路思考（1）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/29/career/职业道路思考（1）/" class="article-date">
-  <time datetime="2018-07-29T03:42:27.000Z" itemprop="datePublished">2018-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/career/职业道路思考（1）/">职业道路思考（1）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="现阶段的职业思考"><a href="#现阶段的职业思考" class="headerlink" title="现阶段的职业思考"></a>现阶段的职业思考</h2><p>背景：目前在百度的XBU担任数据分析师的职位，主要支持产品的需求和其他小组的分析工作。因为工作也有一年半，最近有些迷茫，所以想写一写自己的现在、未来和之间的差距</p>
-<h3 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h3><p>目前的职位是数据分析，主要用到的工具：hive、python、pandas、shell、linux；</p>
-<p>为什么迷茫呢？因为我想学技术啊，每天写写sql，完全没有技术上的提升，运气好了碰到了玉东的IOT需求，终于可以写python项目，然后用pandas分析一下，做成了完整的项目，并且后续会一直跟进，展现了自己的价值。平时虽然有时候会谢谢代码，但是最多10分钟搞定，groupby，count，reset_index()这些都是一个套路。hive里面的技术最多也就是用json_tuple清洗一下json的原数据，但是也就那样了。</p>
-<p>我的技术栈差不多也就下面这些：R、python、mysql、hive、superset；感觉在技术的道路上还差的很多。现在在分析的思考和框架上算是有了点自己的总结，分析工具也用的相对上手。可是离原数据清洗——存储数据——数据探索性分析——可视化或者做成报表——最后作用在商业或者实际产品中还有较大的距离。对了，平时也基本用不到机器学习模型。我想做的是真正接手一个项目，类似IOT那种吧。不过真应该抓紧学习写hadoop了！！！</p>
-<p>不过话说回来，在分析的道路上走到现在，方法和工具都得到了大幅的提升：更加准确全面的分析问题，并发现问题所在，抓住细节。R和PYTHON的熟练使用使得分析速度加快，数据的展现更加的格式化。Hive的学习也让我对大数据有了更深刻的理解。可视化平台也从superset和kibana转变成了质子大数据。shell和linux的操作也熟练了不少，因为不小心删了之前的sql还去disk里面恢复数据，虽然没成功，但是内部存储也有了大致了解</p>
-<h3 id="未来以及之间的差距"><a href="#未来以及之间的差距" class="headerlink" title="未来以及之间的差距"></a>未来以及之间的差距</h3><p>未来想从事数据科学家的职位，所以机器学习及其应用、工程方面还有很大的差距，一年之后看看是否达到了那个水平</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/29/career/职业道路思考（1）/" data-id="ck8n5sx960001p8lwkotaas9g" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/career/">career</a></li></ul>
 
     </footer>
   </div>
@@ -806,7 +868,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -830,7 +892,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 12.5px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
     </div>
   </div>
 
@@ -852,6 +914,14 @@
       <ul>
         
           <li>
+            <a href="/2020/04/08/python/python画图/">Python画图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/08/python/python发邮件/">Python发邮件</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Linux Vi 中替换不可见字符</a>
           </li>
         
@@ -861,14 +931,6 @@
         
           <li>
             <a href="/2019/11/02/hive/groupby/">Groupby</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
           </li>
         
       </ul>

@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="卓奇的博客">
 <meta property="og:description" content="scp 复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径 scp和rsync的区别scp是s">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-05T14:38:18.000Z">
+<meta property="og:updated_time" content="2020-04-05T14:51:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux服务器间传输文件">
 <meta name="twitter:description" content="scp 复制文件将本地文件拷贝到远程scp 文件名 –用户名@计算机IP或者计算机名称:远程路径  从远程将文件拷回本地scp –用户名@计算机IP或者计算机名称:文件名 本地路径  复制目录将本地目录拷贝到远程scp -r 目录名 用户名@计算机IP或者计算机名称:远程路径  从远程将目录拷回本地scp -r 用户名@计算机IP或者计算机名称:目录名 本地路径 scp和rsync的区别scp是s">
@@ -107,11 +107,12 @@
 <li>rsync不是加密传输，而scp是加密传输，scp在跨机器复制的时候为了提高数据的安全性，使用了ssh连接和加密方式，可能会稍微影响一下速度，如果机器之间配置了ssh免密码登录，那在使用scp的时候密码都不用输入，当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来；</li>
 <li>虽然 rsync比scp会快一点，但当小文件众多的情况下，rsync会导致硬盘I/O非常高，而scp基本不影响系统正常使用；</li>
 </ol>
+<h3 id="xsync-集群分发脚本"><a href="#xsync-集群分发脚本" class="headerlink" title="xsync 集群分发脚本"></a>xsync 集群分发脚本</h3><p>循环复制文件到所有节点相同的目录下</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/03/linux/linux服务器间传输文件/" data-id="ck8n5sxaj001ep8lwf359xzzw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/03/linux/linux服务器间传输文件/" data-id="ck8r1hsno000wkjlwqlnesz2b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -163,7 +164,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
+      <a href="/tags/HTTP-TCP-IP/" style="font-size: 17.5px;">HTTP TCP/IP</a> <a href="/tags/algorithm/" style="font-size: 12.5px;">algorithm</a> <a href="/tags/career/" style="font-size: 10px;">career</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hive/" style="font-size: 17.5px;">hive</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/python-linux/" style="font-size: 10px;">python linux</a>
     </div>
   </div>
 
@@ -185,6 +186,14 @@
       <ul>
         
           <li>
+            <a href="/2020/04/08/python/python画图/">Python画图</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/08/python/python发邮件/">Python发邮件</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/02/linux/linux vi 中替换不可见字符/">Linux Vi 中替换不可见字符</a>
           </li>
         
@@ -194,14 +203,6 @@
         
           <li>
             <a href="/2019/11/02/hive/groupby/">Groupby</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/01/linux/rz传大文件连接经常断开解决办法/">Rz传大文件连接经常断开解决办法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/16/hive/hive导入txt/">Hive导入txt</a>
           </li>
         
       </ul>
